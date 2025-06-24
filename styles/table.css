@@ -1,0 +1,39 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+}
+
+caption {
+  margin-bottom: 15px;
+}
+
+td,
+th {
+  border: 1px solid #ddd;
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #ddd;
+}
+
+.vertical-headers th:nth-child(1) {
+  background-color: lightgoldenrodyellow;
+  color: black;
+}
+
+th {
+  background-color: lightblue;
+  color: white;
+}
+
+h2 {
+  text-align: center;
+}
