@@ -391,23 +391,108 @@
 //   console.log(this.files[0].name);
 // });
 
-let error = document.getElementById("error");
-let message = document.getElementById("message");
+// let error = document.getElementById("error");
+// let message = document.getElementById("message");
 
-document.getElementById("myForm").addEventListener("submit", function (e) {
-  console.log("Form Submitted!");
-  e.preventDefault();
-  message.textContent = "Form Submitted!";
-});
+// document.getElementById("myForm").addEventListener("submit", function (e) {
+//   console.log("Form Submitted!");
+//   e.preventDefault();
+//   message.textContent = "Form Submitted!";
+// });
 
-document.getElementById("username").addEventListener("focus", function () {
-  this.style.backgroundColor = "lightblue";
-});
+// document.getElementById("username").addEventListener("focus", function () {
+//   this.style.backgroundColor = "lightblue";
+// });
 
-document.getElementById("username").addEventListener("blur", function (e) {
-  this.style.backgroundColor = "white";
-  console.log(this.value);
-  if (this.value === "") {
-    error.textContent = "Input cannot be empty!";
-  }
-});
+// document.getElementById("username").addEventListener("blur", function (e) {
+//   this.style.backgroundColor = "white";
+//   console.log(this.value);
+//   if (this.value === "") {
+//     error.textContent = "Input cannot be empty!";
+//   }
+// });
+
+// Window Event
+
+// window.addEventListener("load", function () {
+//   console.log("Window fully loaded");
+//   // alert("Window is loaded");
+// });
+
+// window.addEventListener("resize", function () {
+//   console.log(`Resized to: ${this.innerWidth} x ${this.innerHeight}`);
+// });
+
+// window.addEventListener("scroll", function () {
+//   console.log(`You are scrolling`);
+// });
+
+// window.addEventListener("beforeunload", function (e) {
+//   let confirmationMessage = "Are you sure you want to leave?";
+//   e.preventDefault();
+//   e.returnValue = confirmationMessage;
+// });
+
+// Event Propagation
+// const outer = document.getElementById("outer");
+// const middle = document.getElementById("middle");
+// // const inner = document.getElementById("inner");
+
+// function logEvent(e) {
+//   console.log(`${e.currentTarget.id}, ${e.type} handled as ${e.eventPhase}`);
+
+//   if (e.currentTarget.id == "middle") {
+//     e.stopPropagation();
+//     console.log(`Event was stopped in the middle`);
+//   }
+// }
+
+// Capture Phase
+// outer.addEventListener("click", logEvent, true);
+// middle.addEventListener("click", logEvent, true);
+// inner.addEventListener("click", logEvent, true);
+
+// Capture Phase is the default with implicit false argument
+// outer.addEventListener("click", logEvent, false);
+// middle.addEventListener("click", logEvent, false);
+// inner.addEventListener("click", logEvent, false);
+
+// const parentDiv = document.getElementById("parentDiv");
+// const childButton = document.getElementById("childButton");
+
+// function handleClickBubble(e) {
+//   if (e.currentTarget.id == "parentDiv") {
+//     console.log(`Parent Div clicked!`);
+//   } else if (e.currentTarget.id == "childButton") {
+//     console.log(`Button clicked!`);
+//     e.stopPropagation();
+//   }
+// }
+
+// function handleClickCapture(e) {
+//   if (e.currentTarget.id == "parentDiv") {
+//     console.log(`Parent Div clicked during capture!`);
+//   } else if (e.currentTarget.id == "childButton") {
+//     console.log(`Button clicked during capture!`);
+//   }
+// }
+
+// parentDiv.addEventListener("click", handleClickBubble);
+// childButton.addEventListener("click", handleClickBubble);
+
+// parentDiv.addEventListener("click", handleClickCapture, true);
+// childButton.addEventListener("click", handleClickCapture, true);
+
+// Event Delegation
+const taskList = document.getElementById("taskList");
+taskList.addEventListener(
+  "click",
+  function (event) {
+    if (event.target.className === "deleteButton") {
+      const task = event.target.parentElement;
+      taskList.removeChild(task);
+      console.log("Task Deleted: ", task.textContent);
+    }
+  },
+  false
+);
