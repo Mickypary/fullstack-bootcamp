@@ -484,15 +484,71 @@
 // childButton.addEventListener("click", handleClickCapture, true);
 
 // Event Delegation
-const taskList = document.getElementById("taskList");
-taskList.addEventListener(
-  "click",
-  function (event) {
-    if (event.target.className === "deleteButton") {
-      const task = event.target.parentElement;
-      taskList.removeChild(task);
-      console.log("Task Deleted: ", task.textContent);
-    }
-  },
-  false
-);
+// const taskList = document.getElementById("taskList");
+// taskList.addEventListener(
+//   "click",
+//   function (event) {
+//     if (event.target.className === "deleteButton") {
+//       const task = event.target.parentElement;
+//       taskList.removeChild(task);
+//       console.log("Task Deleted: ", task.textContent);
+//     }
+//   },
+//   false
+// );
+
+// window Object
+// document.getElementById("btnOpen").addEventListener("click", function () {
+//   window.open("https://google.com", "_blank");
+//   console.log(window.document);
+//   console.log(window);
+// });
+
+// document.getElementById("btnShowProps").addEventListener("click", function () {
+//   alert(
+//     `
+//       Screen Width: ${window.screen.width}px
+//       Screen Height: ${window.screen.height}px
+//       Screen Avail Width: ${window.screen.availWidth}px
+//       Screen Avail Height: ${window.screen.availHeight}px
+//       Color Depth: ${window.screen.colorDepth}bits
+//       Pixel Depth: ${window.screen.pixelDepth}bits
+//     `
+//   );
+// });
+
+// Location OBject
+// document.getElementById("showHref").addEventListener("click", function () {
+//   console.log("Current Url", window.location.href);
+// });
+
+// document.getElementById("showHostname").addEventListener("click", function () {
+//   console.log("Hostname: ", window.location.hostname);
+// });
+
+// document.getElementById("showPathname").addEventListener("click", function () {
+//   console.log("Pathname: ", window.location.pathname);
+// });
+
+// document.getElementById("showProtocol").addEventListener("click", function () {
+//   console.log("Protocol: ", window.location.protocol);
+// });
+
+// document.getElementById("goToSite").addEventListener("click", function () {
+//   window.location.assign("https://google.com");
+// });
+
+// console.log(window.location);
+
+const dim = document.getElementById("dimensions");
+const url = document.getElementById("urlInfo");
+const info = document.getElementById("browserInfo");
+window.addEventListener("resize", function () {
+  dim.textContent = `${window.innerWidth} x ${this.window.innerHeight}`;
+});
+
+window.addEventListener("load", function () {
+  url.textContent += ` ` + window.location.href;
+});
+
+info.textContent += ` ` + window.navigator.userAgent;
